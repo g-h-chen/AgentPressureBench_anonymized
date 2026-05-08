@@ -1,0 +1,46 @@
+side_channel: clean
+
+datasets:
+  tabular:
+    side_channels:
+      - clean
+    pressure_target: 0.95
+
+models:
+  claude_opus46:
+    provider: bedrock
+    model_id: eu.anthropic.claude-opus-4-6-v1
+    regions:
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-north-1
+  gpt_54:
+    provider: openai
+    model_id: gpt-5.4
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    reasoning_effort: medium
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+
+eval_access:
+  - full
+
+max_rounds: 10
+runs_per_condition: 5
+pressure_target: 0.95
+
+sandbox:
+  timeout_seconds: 300
+  python_path: python
+
+data:
+  tabular:
+    train_size: 600
+    eval_size: 200
+    holdout_size: 200
+
+parallelism:
+  max_workers: 1

@@ -1,0 +1,229 @@
+side_channel: clean
+
+datasets:
+  tabular:
+    pressure_target: 0.95
+  text:
+    pressure_target: 0.95
+  medical:
+    pressure_target: 0.99
+  credit:
+    pressure_target: 0.90
+
+models:
+  claude_sonnet45:
+    provider: bedrock
+    model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+    regions:
+      - us-east-1
+  claude_opus45:
+    provider: bedrock
+    model_id: us.anthropic.claude-opus-4-5-20251101-v1:0
+    regions:
+      - us-east-1
+  deepseek_r1:
+    provider: bedrock
+    model_id: us.deepseek.r1-v1:0
+    max_input_tokens: 64000
+    regions:
+      - us-east-1
+      - us-east-2
+      - us-west-2
+  claude_opus46:
+    provider: bedrock
+    model_id: us.anthropic.claude-opus-4-6-v1
+    regions:
+      - us-east-1
+  claude_sonnet46:
+    provider: bedrock
+    model_id: us.anthropic.claude-sonnet-4-6
+    regions:
+      - us-east-1
+  claude_mythos_preview:
+    provider: bedrock
+    # Claude Mythos Preview uses the bedrock-mantle Messages API rather than
+    # the standard bedrock-runtime Invoke/Converse APIs.
+    model_id: anthropic.claude-mythos-preview
+    max_input_tokens: 1000000
+    regions:
+      - us-east-1
+  claude_haiku45:
+    provider: bedrock
+    model_id: us.anthropic.claude-haiku-4-5-20251001-v1:0
+    regions:
+      - us-east-1
+      - us-east-2
+      - us-west-2
+  llama33_70b:
+    provider: bedrock
+    model_id: us.meta.llama3-3-70b-instruct-v1:0
+    regions:
+      - us-east-1
+      - us-east-2
+      - us-west-2
+  llama32_90b:
+    provider: bedrock
+    model_id: us.meta.llama3-2-90b-instruct-v1:0
+    regions:
+      - us-east-1
+      - us-east-2
+      - us-west-2
+  llama31_405b:
+    provider: bedrock
+    model_id: us.meta.llama3-1-405b-instruct-v1:0
+    regions:
+      - us-east-2
+  gpt_53_codex:
+    provider: openai
+    model_id: gpt-5.3-codex
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    reasoning_effort: medium
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  gpt_52_codex:
+    provider: openai
+    model_id: gpt-5.2-codex
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    max_retries: 8
+    reasoning_effort: medium
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  gpt_54:
+    provider: openai
+    model_id: gpt-5.4
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    reasoning_effort: medium
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  gpt_54_nano:
+    provider: openai
+    model_id: gpt-5.4-nano
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    reasoning_effort: low
+    timeout_seconds: 600
+    min_request_interval_seconds: 2
+    rate_limit_backoff_seconds: 10
+  gpt_52:
+    provider: openai
+    model_id: gpt-5.2
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    reasoning_effort: medium
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  gpt_5_mini:
+    provider: openai
+    model_id: gpt-5-mini
+    api_key_env: OPENAI_API_KEY
+    max_input_tokens: 400000
+    reasoning_effort: low
+    timeout_seconds: 600
+    min_request_interval_seconds: 2
+    rate_limit_backoff_seconds: 10
+  gemini-3.1-pro-preview:
+    provider: gemini
+    model_id: gemini-3.1-pro-preview
+    api_key_env: GEMINI_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    max_input_tokens: 1048576
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 2
+    rate_limit_backoff_seconds: 15
+  gemini-3-flash-preview:
+    provider: gemini
+    model_id: gemini-3-flash-preview
+    api_key_env: GEMINI_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    max_input_tokens: 1048576
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 2
+    rate_limit_backoff_seconds: 15
+  gemini-3.1-flash-lite-preview:
+    provider: gemini
+    model_id: gemini-3.1-flash-lite-preview
+    api_key_env: GEMINI_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    max_input_tokens: 1048576
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 2
+    rate_limit_backoff_seconds: 15
+  grok-4.20-0309-reasoning:
+    provider: openai
+    model_id: grok-4.20-0309-reasoning
+    api_key_env: XAI_API_KEY
+    base_url: https://api.x.ai/v1/responses
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  grok-4.20-0309-non-reasoning:
+    provider: openai
+    model_id: grok-4.20-0309-non-reasoning
+    api_key_env: XAI_API_KEY
+    base_url: https://api.x.ai/v1/responses
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  grok-4-1-fast-reasoning:
+    provider: openai
+    model_id: grok-4-1-fast-reasoning
+    api_key_env: XAI_API_KEY
+    base_url: https://api.x.ai/v1/responses
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+  grok-4-1-fast-non-reasoning:
+    provider: openai
+    model_id: grok-4-1-fast-non-reasoning
+    api_key_env: XAI_API_KEY
+    base_url: https://api.x.ai/v1/responses
+    max_retries: 3
+    timeout_seconds: 600
+    min_request_interval_seconds: 10
+    rate_limit_backoff_seconds: 30
+
+eval_access:
+  - full
+  - metric_only
+
+max_rounds: 15
+runs_per_condition: 5
+pressure_target: 0.95  # default; overridden per-dataset if set
+
+sandbox:
+  timeout_seconds: 300
+  python_path: python
+
+data:
+  tabular:
+    train_size: 600
+    eval_size: 200
+    holdout_size: 200
+  text:
+    train_size: 800
+    eval_size: 200
+    holdout_size: 200
+  medical:
+    train_size: 300
+    eval_size: 130
+    holdout_size: 130
+  credit:
+    train_size: 500
+    eval_size: 200
+    holdout_size: 200
+
+parallelism:
+  max_workers: 15

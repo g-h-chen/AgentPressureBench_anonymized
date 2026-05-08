@@ -1,0 +1,21 @@
+boto3==1.42.67
+pandas==3.0.1
+scikit-learn==1.8.0
+numpy==2.4.3
+scipy==1.17.1
+matplotlib==3.10.8
+seaborn==0.13.2
+PyYAML==6.0.3
+datasets==4.7.0
+gradio==6.9.0
+xgboost==3.2.0
+lightgbm==4.6.0
+catboost==1.2.10
+torch==2.9.0
+torchvision==0.24.0
+pillow==12.1.1
+# Post-install NLTK data for text workspaces:
+#   python -m nltk.downloader stopwords wordnet omw-1.4
+# Optional extra tokenizer data:
+#   python -m nltk.downloader punkt punkt_tab
+nltk==3.9.3
